@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages
-         app-dir: ./server
+         app-dir:./server
       - run:
          command: npm test
          working_directory: ./server
