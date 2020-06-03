@@ -14,8 +14,8 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/install-packages
-         app-dir:./server
+      - node/install-packages:
+         app-dir: ./server
       - run:
          command: npm test
          working_directory: ./server
@@ -25,8 +25,8 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/install-packages
-         app-dir:./client
+      - node/install-packages:
+         app-dir: ./client
       - run:
          command: npm test
          working_directory: ./client
