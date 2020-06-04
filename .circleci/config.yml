@@ -53,3 +53,7 @@ workflows:
        - test_server
        - test_client
        - dhub_pub
+          requires:
+            - docker-con
+            - test_server
+            - test_client
