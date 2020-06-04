@@ -31,6 +31,21 @@ jobs:
          command: npm test
          working_directory: ./client
 
+  dhub_pub:
+    machine: true
+    steps:
+      - checkout
+      - run:
+         command: |
+           echo "$DOCKER_LOGIN" | docker login -u "b0niu" --password-stdin
+           sudo docker build ./server -t b0niu/server
+           sudo docker push b0niu/server
+      - run:
+         command: |
+           echo "$DOCKER_LOGIN" | docker login -u "b0niu" --password-stdin
+           sudo docker build ./client -t b0niu/client
+           sudo docker push b0niu/client
+
 workflows:
     build-and-test:
       jobs:
