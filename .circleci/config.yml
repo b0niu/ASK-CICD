@@ -52,3 +52,4 @@ workflows:
        - docker-con
        - test_server
        - test_client
+       - dhub_pub
