@@ -1,5 +1,4 @@
 # ASK 2020 Nodejs-React app
-**Cel ćwiczenia:**
 
 
 
