@@ -38,13 +38,13 @@ jobs:
       - run:
          command: |
            echo "$PASS_DOCKHUB" | docker login -u "b0niu" --password-stdin
-           sudo docker build ./server -t b0niu/server
-           sudo docker push b0niu/server
+           sudo docker build ./server -t b0niu/server1
+           sudo docker push b0niu/server1
       - run:
          command: |
            echo "$PASS_DOCKHUB" | docker login -u "b0niu" --password-stdin
-           sudo docker build ./client -t b0niu/client
-           sudo docker push b0niu/client
+           sudo docker build ./client -t b0niu/client1
+           sudo docker push b0niu/client1
 
 workflows:
     build-and-test:
