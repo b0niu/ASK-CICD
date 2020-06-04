@@ -49,12 +49,7 @@ jobs:
 workflows:
     build-and-test:
       jobs:
-<<<<<<< HEAD
-       - docker-con:
-           filters:
-            branches:
-              only:
-                - master
+       - docker-con
        - test_server:
           filters:
             branches:
