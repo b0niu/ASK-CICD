@@ -37,12 +37,12 @@ jobs:
       - checkout
       - run:
          command: |
-           echo "$DOCKER_LOGIN" | docker login -u "b0niu" --password-stdin
+           echo "$PASS_DOCKHUB" | docker login -u "b0niu" --password-stdin
            sudo docker build ./server -t b0niu/server
            sudo docker push b0niu/server
       - run:
          command: |
-           echo "$DOCKER_LOGIN" | docker login -u "b0niu" --password-stdin
+           echo "$PASS_DOCKHUB" | docker login -u "b0niu" --password-stdin
            sudo docker build ./client -t b0niu/client
            sudo docker push b0niu/client
 
