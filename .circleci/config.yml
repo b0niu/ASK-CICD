@@ -49,6 +49,7 @@ jobs:
 workflows:
     build-and-test:
       jobs:
+<<<<<<< HEAD
        - docker-con:
            filters:
             branches:
@@ -69,6 +70,12 @@ workflows:
             branches:
               only:
                 - master
+=======
+       - docker-con
+       - test_server
+       - test_client
+       - dhub_pub:
+>>>>>>> 44fce2a2a014caf1066fa6c8eb89035f31b92b63
           requires:
             - docker-con
             - test_server
