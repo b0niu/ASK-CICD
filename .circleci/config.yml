@@ -38,21 +38,37 @@ jobs:
       - run:
          command: |
            echo "$PASS_DOCKHUB" | docker login -u "b0niu" --password-stdin
-           sudo docker build ./server -t b0niu/server1
-           sudo docker push b0niu/server1
+           sudo docker build ./server -t b0niu/serv
+           sudo docker push b0niu/serv
       - run:
          command: |
            echo "$PASS_DOCKHUB" | docker login -u "b0niu" --password-stdin
-           sudo docker build ./client -t b0niu/client1
-           sudo docker push b0niu/client1
+           sudo docker build ./client -t b0niu/cli
+           sudo docker push b0niu/cli
 
 workflows:
     build-and-test:
       jobs:
-       - docker-con
-       - test_server
-       - test_client
-       - dhub_pub
+       - docker-con:
+           filters:
+            branches:
+              only:
+                - master
+       - test_server:
+          filters:
+            branches:
+              only:
+                - master
+       - test_client:
+          filters:
+            branches:
+              only:
+                - master
+       - dhub_pub:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - docker-con
             - test_server
